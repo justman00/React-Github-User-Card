@@ -7,6 +7,8 @@ class SearchMenu extends Component {
     evt.preventDefault();
     console.log("input value: ", this.state.name);
     this.props.getUser(this.state.name);
+    this.props.getFollowers(this.state.name);
+    this.setState({ name: "" });
   };
 
   render() {
