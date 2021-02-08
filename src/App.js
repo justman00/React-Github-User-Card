@@ -1,28 +1,32 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import UserCard from "./components/UserCard";
-import SearchField from "./components/SearchField";
-import './App.css';
+import SearchMenu from "./components/SearchMenu";
 
 class App extends Component {
-  state = {query: "", user: {}}
+  state = { user: {} };
 
-  async componentDidMount (){
-    const result = await fetch(`https://api.github.com/users/${this.state.query}`);
-    const obj = await result.json();
-    this.setState({user: obj});
-    console.log(this.state.user);
+  componentDidMount() {
+    const getUser = async (query) => {
+      const result = await fetch(`https://api.github.com/users/${query}`);
+      const obj = await result.json();
+      this.setState({ user: obj });
+      console.log("User: ", this.state.user);
+    };
+    getUser();
   }
 
- 
-
-  render(){
+  render() {
     return (
-    <div className="App">
-      <SearchField />
-      <UserCard user={this.state.user}/>
-    </div>
-  );}
-  
+      <div>
+        <SearchMenu getUser={this.getUser} />
+        {this.state.user !== null ? (
+          <UserCard user={this.state.user} />
+        ) : (
+          "Loading..."
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
