@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserCard from "./components/UserCard";
 import SearchMenu from "./components/SearchMenu";
 import ContribGraph from "./components/ContribGraph";
-
+import Followers from "./components/Followers";
 class App extends Component {
   state = { user: {}, followers: [] };
 
@@ -29,14 +29,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <SearchMenu getUser={this.getUser} getFollowers={this.getFollowers} />
         {this.state.user !== null ? (
           <UserCard user={this.state.user} />
         ) : (
           "Loading..."
         )}
-        <ContribGraph user={this.state.user} />
+        <ContribGraph />
+        <Followers followers={this.state.followers} />
       </div>
     );
   }
