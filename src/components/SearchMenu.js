@@ -23,8 +23,8 @@ class SearchMenu extends Component {
 
   render() {
     return (
-      <div>
-        <Flex bg="purple.600">
+      <Flex bg="purple.600">
+        <Flex>
           <Image
             src={githubicon}
             alt="github_logo"
@@ -36,10 +36,12 @@ class SearchMenu extends Component {
           <Text fontSize="3xl" fontWeight="bold" mt="9" mr="5" color="white">
             GitHub User Card
           </Text>
-          <InputGroup mt="10" w="100">
+        </Flex>
+        <Flex width={{ base: "100", md: "80", sm: "80" }}>
+          <InputGroup mt="10" size="md">
             <Input
               focusBorderColor="white"
-              pr="4.5rem"
+              //pr="4.5rem"
               textColor="white"
               bg="whiteAlpha.500"
               type="text"
@@ -60,7 +62,7 @@ class SearchMenu extends Component {
             </InputRightElement>
           </InputGroup>
         </Flex>
-      </div>
+      </Flex>
     );
   }
 }

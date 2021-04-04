@@ -4,7 +4,7 @@ import { Box, Image, Flex, Text, Link } from "@chakra-ui/react";
 class UserCard extends Component {
   render() {
     return (
-      <div align="center">
+      <Box align="center">
         <Flex mx="20" mt="20" bg="white" borderRadius="2xl" w="container.md">
           <Image
             m="3"
@@ -46,7 +46,7 @@ class UserCard extends Component {
             </Text>
           </Box>
         </Flex>
-      </div>
+      </Box>
     );
   }
 }

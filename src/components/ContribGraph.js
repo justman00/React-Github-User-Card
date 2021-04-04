@@ -13,12 +13,13 @@ const exampleTheme = {
   grade0: "#eee",
 };
 
-const ContribGraph = ({ user }) => {
+const ContribGraph = (props) => {
+  const { user } = props;
   return (
-    <div align="center">
+    <Box align="center">
       <Box
         mx="20"
-        mt="2"
+        mt="4"
         bg="white"
         borderRadius="2xl"
         w="container.md"
@@ -27,11 +28,11 @@ const ContribGraph = ({ user }) => {
         <Text align="center" mb="2">
           Activity overview
         </Text>
-        <GitHubCalendar username="justman00" theme={exampleTheme}>
+        <GitHubCalendar username={user.login} theme={exampleTheme}>
           <ReactTooltip delayShow={50} html />
         </GitHubCalendar>
       </Box>
-    </div>
+    </Box>
   );
 };
 export default ContribGraph;
